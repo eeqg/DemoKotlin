@@ -11,6 +11,13 @@ open class Person(name: String = "wxy") {
         pName = name;
     }
 
+    companion object {
+        var a = 10
+        fun cc() {
+            println("-----companion object-----")
+        }
+    }
+
     constructor(name: String, age: Int) : this(name) {
         println("-----secondary constructor-----name:$name, age:$age")
     }
@@ -35,6 +42,19 @@ class XPerson(name: String) : Person(name) {
     }
 }
 
+class PerPerson {
+    fun XPerson.extendMethod() {
+        println("= = = = = = = = = = = = = = = =")
+        greeting()
+        println("extend method.....")
+        println("= = = = = = = = = = =")
+    }
+
+    fun pp() {
+        XPerson("extend, Person").extendMethod()
+    }
+}
+
 fun main() {
     var person1 = Person()
 
@@ -44,5 +64,21 @@ fun main() {
 
     person2.favorFruit("pear")
 
+    //重新
     XPerson("xMan").greeting()
+
+    //伴生对象
+    println(Person.a)
+    Person.cc()
+
+    //扩展
+    val ex = PerPerson()
+    ex.pp()
+
+    //signalTon.
+    SignalTonDemo.get().foo()
+    //幕后字段
+    println(SignalTonDemo.get().testField)
+    SignalTonDemo.get().testField = "0"
+    println(SignalTonDemo.get().testField)
 }

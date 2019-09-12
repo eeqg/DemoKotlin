@@ -39,7 +39,8 @@ class SignalTonDemo private constructor() {
             field = value
         }
 
-    fun foo() {
+    fun foo() : String {
         println("---------> form signalTon.")
+        return "111222333"
     }
 }

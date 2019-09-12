@@ -49,6 +49,7 @@ fun testWith() {
 }
 
 fun testLet(original: String) {
+    //演变操作(返回一个不同类型的值)
     printLog("let")
     original.let {
         println("The original String is $it") // "abc"
@@ -62,7 +63,7 @@ fun testLet(original: String) {
 }
 
 fun testAlso(original: String) {
-    //可以非常强大的进行自我操作
+    //对相同的变量执行操作, 可以非常强大的进行自我操作(返回T类型本身)
     printLog("also")
     original.also {
         println("The original String is $it") // "abc"
@@ -73,7 +74,7 @@ fun testAlso(original: String) {
     }.also {
         println("The length of the String is ${it}") // "abc"
     }.also {
-        println("length: ${it.length}")
+        println("length: ${it.length}")//3
     }
 }
 
@@ -84,6 +85,7 @@ fun testApply() {
     SignalTonDemo.get().foo()
         .apply {
             println("-------> 1")
+            println("-------> $this")
         }.apply {
             println("-------> 2")
         }.apply {

@@ -1,4 +1,4 @@
-package com.douyao.demokotlin
+package com.douyao.demokotlin.kotlin
 
 /**
  * Created by wp on 2019/9/9.
@@ -49,7 +49,7 @@ fun testWith() {
 }
 
 fun testLet(original: String) {
-    //演变操作(返回一个不同类型的值)
+    //演变操作(返回一个演变后不同类型的值)
     printLog("let")
     original.let {
         println("The original String is $it") // "abc"
@@ -80,6 +80,7 @@ fun testAlso(original: String) {
 
 fun testApply() {
     //可以让无链对象创建链式调用
+    //obj.apply的传参: this -- 当前对象
     printLog("apply")
 
     SignalTonDemo.get().foo()

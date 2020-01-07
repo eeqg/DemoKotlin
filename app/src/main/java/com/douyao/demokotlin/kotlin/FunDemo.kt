@@ -1,6 +1,7 @@
 package com.douyao.demokotlin.kotlin
 
 import android.os.Build
+import kotlin.random.Random
 
 /**
  * Created by wp on 2019/9/18.
@@ -33,11 +34,15 @@ fun main() {
     testListCopy()
     testListOperate()
 
+    testArrays()
+
     testSequences()
 
     testSet()
 
     testMap()
+
+    testOther()
 }
 
 //params b : 默认参数
@@ -265,6 +270,24 @@ fun testListOperate() {
 }
 
 /**
+ * 数组
+ */
+fun testArrays() {
+    println("-------array --------")
+    // Array of int of size 5 with values [0, 0, 0, 0, 0]
+    val arr1 = IntArray(5)
+
+    // e.g. initialise the values in the array with a constant
+    // Array of int of size 5 with values [42, 42, 42, 42, 42]
+    val arr2 = IntArray(5) { 42 }
+
+    // e.g. initialise the values in the array using a lambda
+    // Array of int of size 5 with values [0, 1, 2, 3, 4] (values initialised to their index value)
+    var arr3 = IntArray(5, { it * 1 })
+    println(arr3.asList())
+}
+
+/**
  * 列表和序列
  */
 fun testSequences() {
@@ -333,4 +356,10 @@ fun testMap() {
     mutableMap.putAll(setOf("four" to 4, "five" to 5))
     mutableMap["six"] = 6
     println(mutableMap)
+
+}
+
+fun testOther() {
+    val number = Random.nextInt(100)
+    println("${number.takeIf { it % 2 == 0 }}")
 }
